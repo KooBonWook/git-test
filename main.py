@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication
 
 def main():
     print("hello, world")
+    print("Pull Test sentence")
     calc = QApplication(sys.argv)
     app=QApplication(sys.argv)
     view=View()
