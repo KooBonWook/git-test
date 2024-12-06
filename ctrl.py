@@ -15,3 +15,18 @@ class Control:
             return a+b
         except:
             return "Calculation Error"
+    
+    def div(self, a, b):
+        try:
+            raise Exception("Divisor error")
+        except Exception as e:     
+            return e
+        return a/b
+                 
+        
+    def pol(self, a, b):
+        try:
+            return a+b
+        except:
+            return "Calculation Error"
+        
