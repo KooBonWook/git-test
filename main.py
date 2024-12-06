@@ -4,8 +4,6 @@ from ctrl import Control
 from PyQt5.QtWidgets import QApplication        
 
 def main():
-    print("hello, world")
-    print("Pull Test sentence")
     calc = QApplication(sys.argv)
     app=QApplication(sys.argv)
     view=View()
@@ -14,4 +12,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-   
