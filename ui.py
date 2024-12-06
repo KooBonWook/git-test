@@ -1,6 +1,8 @@
-from PyQt5.QtWidgets import (QApplication,QWidget,QPushButton,QVBoxLayout,
-                             QMessageBox, QPlainTextEdit, QHBoxLayout)
+ from PyQt5.QtWidgets import (QApplication,QWidget,QPushButton,QVBoxLayout,
+                             QMessageBox, QPlainTextEdit, QHBoxLayout,
+                             QLineEdit, QComboBox)
 from PyQt5.QtGui import QIcon
+from PyQt5 import QtCore
 
 
 class View(QWidget):
@@ -13,8 +15,24 @@ class View(QWidget):
         self.te1 = QPlainTextEdit()
         self.te1.setReadOnly(True)
         
-        self.btn1=QPushButton('Message',self)
+        self.btn1=QPushButton('Calc',self)
         self.btn2=QPushButton('Clear',self)
+        
+        self.le1=QLineEdit('0',self)
+        self.le1.setAlignment(QtCore.Qt.AlignRight)
+        self.le1.setFocus(True)
+        self.le1.selectAll()
+        
+        self.le2=QLineEdit('0',self)
+        self.le2.setAlignment(QtCore.Qt.AlignRight)
+        
+        self.cb = QComboBox(self)
+        self.cb.addItems(['+', '-', '*', '/'])
+        
+        hbox_formular = QHBoxLayout()
+        hbox_formular.addWidget(self.le1)
+        hbox_formular.addWidget(self.cb)
+        hbox_formular.addWidget(self.le2)
         
         hbox = QHBoxLayout()
         hbox.addStretch(1)
@@ -23,6 +41,7 @@ class View(QWidget):
         
         vbox=QVBoxLayout()
         vbox.addWidget(self.te1)
+        vbox.addLayout(hbox_formular)
         vbox.addLayout(hbox)
         vbox.addStretch(1)
         
@@ -33,7 +52,7 @@ class View(QWidget):
         self.resize(256,256)
         self.show()
         
-    def activateMessage(self):
+    def setDisplay(self):
         self.te1.appendPlainText("Button clicked!")
         
     def clearMessage(self):
